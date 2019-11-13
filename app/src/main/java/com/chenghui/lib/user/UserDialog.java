@@ -2,6 +2,7 @@ package com.chenghui.lib.user;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.view.View;
 
 
@@ -18,7 +19,7 @@ public class UserDialog {
         this(activity, true, true, true, listener);
     }
 
-    public UserDialog(Activity activity, boolean isStorage, boolean isPhone, boolean isLocation, final View.OnClickListener listener) {
+    public UserDialog(final Activity activity, boolean isStorage, boolean isPhone, boolean isLocation, final View.OnClickListener listener) {
 
         dialog = new AlertDialog.Builder(activity, R.style.user_dialog).create();
         dialog.show();
@@ -51,6 +52,24 @@ public class UserDialog {
                 if (listener != null) {
                     listener.onClick(view);
                 }
+            }
+        });
+
+        dialog.findViewById(R.id.user_click_user).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity, WebActivity.class);
+                intent.putExtra("data","http://www.chenghuigaoke.top/user.htm");
+                activity.startActivity(intent);
+            }
+        });
+
+        dialog.findViewById(R.id.user_click_yinsi).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity, WebActivity.class);
+                intent.putExtra("data","http://www.chenghuigaoke.top/yinsi.htm");
+                activity.startActivity(intent);
             }
         });
     }

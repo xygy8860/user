@@ -18,11 +18,15 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.hello).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UserDialog dialog = new UserDialog(MainActivity.this);
+                UserDialog dialog = new UserDialog(MainActivity.this, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                });
                 dialog.show();
             }
         });
-
     }
 
     @Override
