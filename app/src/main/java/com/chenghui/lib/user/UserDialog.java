@@ -15,11 +15,15 @@ public class UserDialog {
 
     private AlertDialog dialog;
 
-    public UserDialog(Activity activity, View.OnClickListener listener) {
-        this(activity, true, true, true, listener);
+    public UserDialog(Activity activity, View.OnClickListener onAgreeListener) {
+        this(activity, onAgreeListener, null);
     }
 
-    public UserDialog(final Activity activity, boolean isStorage, boolean isPhone, boolean isLocation, final View.OnClickListener listener) {
+    public UserDialog(Activity activity, View.OnClickListener onAgreeListener, View.OnClickListener onCloseListener) {
+        this(activity, true, true, true, onAgreeListener, onCloseListener);
+    }
+
+    public UserDialog(final Activity activity, boolean isStorage, boolean isPhone, boolean isLocation, final View.OnClickListener onAgreeListener, final View.OnClickListener onCloseListener) {
 
         dialog = new AlertDialog.Builder(activity, R.style.user_dialog).create();
         dialog.show();
@@ -43,14 +47,18 @@ public class UserDialog {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
+
+                if (onCloseListener != null) {
+                    onCloseListener.onClick(view);
+                }
             }
         });
 
         dialog.findViewById(R.id.user_agree_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (listener != null) {
-                    listener.onClick(view);
+                if (onAgreeListener != null) {
+                    onAgreeListener.onClick(view);
                 }
             }
         });
@@ -59,7 +67,7 @@ public class UserDialog {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(activity, WebActivity.class);
-                intent.putExtra("data","http://www.chenghuigaoke.top/user.htm");
+                intent.putExtra("data", "http://www.chenghuigaoke.top/user.htm");
                 activity.startActivity(intent);
             }
         });
@@ -68,7 +76,7 @@ public class UserDialog {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(activity, WebActivity.class);
-                intent.putExtra("data","http://www.chenghuigaoke.top/yinsi.htm");
+                intent.putExtra("data", "http://www.chenghuigaoke.top/yinsi.htm");
                 activity.startActivity(intent);
             }
         });
