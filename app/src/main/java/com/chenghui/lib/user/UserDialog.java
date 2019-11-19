@@ -43,6 +43,11 @@ public class UserDialog {
             dialog.findViewById(R.id.user_location).setVisibility(View.GONE);
         }
 
+        if (!isStorage && !isLocation && !isPhone) {
+            dialog.findViewById(R.id.user_tips).setVisibility(View.GONE);
+            dialog.findViewById(R.id.user_des).setVisibility(View.GONE);
+        }
+
         dialog.findViewById(R.id.user_close_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
