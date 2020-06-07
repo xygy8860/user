@@ -3,6 +3,7 @@ package com.chenghui.lib.user;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.text.TextUtils;
 import android.view.View;
 
 
@@ -14,6 +15,9 @@ import android.view.View;
 public class UserDialog {
 
     private AlertDialog dialog;
+    private String userUrl;
+    private String yinsiUrl;
+
 
     public UserDialog(Activity activity, View.OnClickListener onAgreeListener) {
         this(activity, onAgreeListener, null);
@@ -72,7 +76,7 @@ public class UserDialog {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(activity, WebActivity.class);
-                intent.putExtra("data", "http://www.chenghuigaoke.top/user.htm");
+                intent.putExtra("data", TextUtils.isEmpty(userUrl) ? "http://www.chenghuigaoke.top/user.htm" : userUrl);
                 activity.startActivity(intent);
             }
         });
@@ -81,7 +85,7 @@ public class UserDialog {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(activity, WebActivity.class);
-                intent.putExtra("data", "http://www.chenghuigaoke.top/yinsi.htm");
+                intent.putExtra("data", TextUtils.isEmpty(yinsiUrl) ? "http://www.chenghuigaoke.top/yinsi.htm" : yinsiUrl);
                 activity.startActivity(intent);
             }
         });
@@ -97,5 +101,13 @@ public class UserDialog {
 
     public boolean isShowing() {
         return dialog.isShowing();
+    }
+
+    public void setYinsiUrl(String yinsiUrl) {
+        this.yinsiUrl = yinsiUrl;
+    }
+
+    public void setUserUrl(String userUrl) {
+        this.userUrl = userUrl;
     }
 }
