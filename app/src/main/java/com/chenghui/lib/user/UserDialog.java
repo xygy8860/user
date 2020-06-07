@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
 
-
 /**
  * 求好评
  * Created by 2017/5/18.
