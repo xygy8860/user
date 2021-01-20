@@ -215,18 +215,40 @@
             
             </LinearLayout>
             
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                
+                <Button
+                    android:id="@+id/user_jujue_button"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/user_btn_select_line"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="14.0dip"
+                    android:paddingBottom="14.0dip"
+                    android:text="拒绝"
+                    android:textColor="#808080"
+                    android:textSize="16.0sp" />
+                
+                <Button
+                    android:id="@+id/user_agree_button"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/user_btn_select_line"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="14.0dip"
+                    android:paddingBottom="14.0dip"
+                    android:text="同意"
+                    android:textColor="#ff69b340"
+                    android:textSize="16.0sp" />
             
-            <Button
-                android:id="@+id/user_agree_button"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/user_btn_select_line"
-                android:gravity="center_horizontal"
-                android:paddingTop="14.0dip"
-                android:paddingBottom="14.0dip"
-                android:text="同意"
-                android:textColor="#ff69b340"
-                android:textSize="16.0sp" />
+            </LinearLayout>
+        
         </LinearLayout>
     </LinearLayout>
     

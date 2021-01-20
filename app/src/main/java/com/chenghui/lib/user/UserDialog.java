@@ -62,6 +62,17 @@ public class UserDialog {
             }
         });
 
+        dialog.findViewById(R.id.user_jujue_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+
+                if (onCloseListener != null) {
+                    onCloseListener.onClick(view);
+                }
+            }
+        });
+
         dialog.findViewById(R.id.user_agree_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
