@@ -15,6 +15,7 @@ public class WebActivity extends Activity {
         //webView.getSettings().setJavaScriptEnabled(true);
         // 设置可以支持缩放
         webView.getSettings().setSupportZoom(true);
+        webview.clearCache(true);
         // 设置出现缩放工具
         webView.getSettings().setBuiltInZoomControls(true);
         //扩大比例的缩放
